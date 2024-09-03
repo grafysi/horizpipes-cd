@@ -43,7 +43,7 @@ spec:
       - name: external1
         port: 9094
         type: ingress
-        tls: false
+        tls: true
         configuration:
           class: haproxy
           bootstrap:
