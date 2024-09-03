@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kafka-broker
+  namespace: argocd
+spec:
+  project: horizpipes-dev
+  source:
+    repoURL: https://github.com/grafysi/horizpipes-cd.git
+    targetRevision: HEAD
+    path: ingestor/kafka-broker
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: strimzi
