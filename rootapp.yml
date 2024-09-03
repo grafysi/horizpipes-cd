@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: horizpipes-rootapp
+  namespace: argocd
+spec:
+  project: horizpipes-cd
+  source:
+    repoURL: https://github.com/grafysi/horizpipes-cd.git
+    targetRevision: HEAD
+    path: apps
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
