@@ -4,7 +4,7 @@ metadata:
   name: horizpipes-rootapp
   namespace: argocd
 spec:
-  project: horizpipes-cd
+  project: default
   source:
     repoURL: https://github.com/grafysi/horizpipes-cd.git
     targetRevision: HEAD
