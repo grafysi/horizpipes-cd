@@ -1,11 +1,11 @@
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaNodePool
 metadata:
-  name: pool-a
+  name: dual-role
   labels:
-    strimzi.io/cluster: hzp-cluster
+    strimzi.io/cluster: my-cluster
 spec:
-  replicas: 2
+  replicas: 1
   roles:
     - controller
     - broker
@@ -23,7 +23,7 @@ spec:
 apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
-  name: hzp-cluster
+  name: my-cluster
   annotations:
     strimzi.io/node-pools: enabled
     strimzi.io/kraft: enabled
@@ -49,4 +49,3 @@ spec:
   entityOperator:
     topicOperator: {}
     userOperator: {}
-
