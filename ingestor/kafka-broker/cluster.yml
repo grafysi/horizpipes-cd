@@ -40,19 +40,10 @@ spec:
         port: 9093
         type: internal
         tls: true
-      - name: external1
+      - name: clusterip
         port: 9094
-        type: ingress
-        tls: true
-        configuration:
-          class: haproxy
-          bootstrap:
-            host: kafka-bootstrap.hzp.local
-          brokers:
-            - broker: 0
-              host: kafka-0.hzp.local
-            - broker: 1
-              host: kafka-1.hzp.local
+        type: cluster-ip
+        tls: false
     config:
       offsets.topic.replication.factor: 1
       transaction.state.log.replication.factor: 1
