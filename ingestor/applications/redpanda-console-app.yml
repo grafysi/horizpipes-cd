@@ -11,7 +11,7 @@ spec:
       targetRevision: 0.7.29
       helm:
         valueFiles:
-          - $values/helm-values.yml
+          - $values/ingestor/redpanda/helm-values.yml
     - repoURL: https://github.com/grafysi/horizpipes-cd.git
       targetRevision: HEAD
       path: ingestor/redpanda-console
