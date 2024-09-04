@@ -11,5 +11,4 @@ spec:
       port: 9092
       allowedRoutes:
         kinds:
-          - "HTTPRoute"
-          - "TCPRoute"
+          - kind: TCPRoute
