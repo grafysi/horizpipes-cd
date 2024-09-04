@@ -1,0 +1,37 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaUser
+metadata:
+  name: hzp-strimzi-user
+  namespace: strimzi
+  labels:
+    strimzi.io/cluster: hzp-cluster
+spec:
+  authentication:
+    type: scram-sha-512
+  authorization:
+    type: simple
+    acls:
+      - resource:
+          type: topic
+          name: "*"
+          patternType: literal
+        operations:
+          - 'All'
+        host: "*"
+      - resource:
+          type: group
+          name: "*"
+          patternType: literal
+        operations:
+          - 'All'
+        host: "*"
+      - resource:
+          type: cluster
+        operations:
+          - 'All'
+      - resource:
+          type: transactionalId
+          name: "*"
+          patternType: literal
+        operations:
+          - 'All'
