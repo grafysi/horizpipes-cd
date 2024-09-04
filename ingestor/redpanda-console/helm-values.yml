@@ -147,7 +147,7 @@ console:
       clientId: hzp-redpanda-console
       sasl:
         enabled: true
-        mechanism: scram-sha-512
+        mechanism: SCRAM-SHA-512
         username: hzp-strimzi-user
         # password: set via helm secret
       tls:
