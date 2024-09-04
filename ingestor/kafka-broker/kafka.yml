@@ -9,6 +9,8 @@ spec:
   kafka:
     version: 3.8.0
     metadataVersion: 3.8-IV0
+    authorization:
+      type: simple
     listeners:
       - name: exposed
         port: 9092
