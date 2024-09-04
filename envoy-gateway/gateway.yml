@@ -7,10 +7,10 @@ spec:
   gatewayClassName: nodeport-envoy-gateway-class
   listeners:
     - name: kafka-listener
-      protocol: TCP
+      protocol: TLS
       port: 9092
+      tls:
+        mode: Passthrough
       allowedRoutes:
         namespaces:
           from: All
-        kinds:
-          - kind: TCPRoute

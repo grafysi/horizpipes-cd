@@ -1,0 +1,89 @@
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TLSRoute
+metadata:
+  name: hzp-strimzi-broker-0
+  namespace: strimzi
+spec:
+  hostnames:
+    - broker-0.strimzi.hzp.local
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: nodeport-envoy-gateway-class
+      namespace: hzp-system
+      sectionName: kafka-listener
+  rules:
+    - backendRefs:
+        - group: ""
+          kind: Service
+          name: hzp-cluster-pool-a-exposed-0
+          port: 9092
+
+---
+
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TLSRoute
+metadata:
+  name: hzp-strimzi-broker-1
+  namespace: strimzi
+spec:
+  hostnames:
+    - broker-1.strimzi.hzp.local
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: nodeport-envoy-gateway-class
+      namespace: hzp-system
+      sectionName: kafka-listener
+  rules:
+    - backendRefs:
+        - group: ""
+          kind: Service
+          name: hzp-cluster-pool-a-exposed-1
+          port: 9092
+
+---
+
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TLSRoute
+metadata:
+  name: hzp-strimzi-broker-2
+  namespace: strimzi
+spec:
+  hostnames:
+    - broker-2.strimzi.hzp.local
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: nodeport-envoy-gateway-class
+      namespace: hzp-system
+      sectionName: kafka-listener
+  rules:
+    - backendRefs:
+        - group: ""
+          kind: Service
+          name: hzp-cluster-pool-a-exposed-2
+          port: 9092
+
+---
+
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TLSRoute
+metadata:
+  name: hzp-strimzi-bootstrap
+  namespace: strimzi
+spec:
+  hostnames:
+    - bootstrap.strimzi.hzp.local
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: nodeport-envoy-gateway-class
+      namespace: hzp-system
+      sectionName: kafka-listener
+  rules:
+    - backendRefs:
+        - group: ""
+          kind: Service
+          name: hzp-cluster-kafka-exposed-bootstrap
+          port: 9092
