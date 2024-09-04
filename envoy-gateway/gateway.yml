@@ -10,5 +10,7 @@ spec:
       protocol: TCP
       port: 9092
       allowedRoutes:
+        namespaces:
+          from: All
         kinds:
           - kind: TCPRoute
