@@ -150,7 +150,7 @@ console:
         mechanism: SCRAM-SHA-512
         username: hzp-strimzi-user
         # password: set via helm secret
-        password: "TO0xK9sKki5eGKBBjnW4h9aCC4lG5X4a"
+        password: TO0xK9sKki5eGKBBjnW4h9aCC4lG5X4a
       tls:
         enabled: false
 
