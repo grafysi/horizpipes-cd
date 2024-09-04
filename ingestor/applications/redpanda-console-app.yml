@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: redpanda-console
+  namespace: argocd
+spec:
+  project: horizpipes-dev
+  sources:
+    - repoURL: https://charts.redpanda.com/
+      chart: console
+      targetRevision: 0.7.29
+      helm:
+        valueFiles:
+          - $values/helm-values.yml
+    - repoURL: https://github.com/grafysi/horizpipes-cd.git
+      targetRevision: HEAD
+      path: ingestor/redpanda-console
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: redpanda
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
