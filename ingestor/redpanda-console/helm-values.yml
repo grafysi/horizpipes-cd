@@ -150,6 +150,7 @@ console:
         mechanism: SCRAM-SHA-512
         username: hzp-strimzi-user
         # password: set via helm secret
+        password: "VE8weEs5c0traTVlR0tCQmpuVzRoOWFDQzRsRzVYNGE="
       tls:
         enabled: false
 
@@ -220,7 +221,7 @@ secret:
   # that Console can automatically pick them up.
   # -- Kafka Secrets.
   kafka:
-    saslPassword: "hzp-strimzi-user"
+    #saslPassword: "hzp-strimzi-user"
     # saslPassword:
     # awsMskIamSecretKey:
     # tlsCa:
