@@ -4,7 +4,7 @@ metadata:
   name: hzp-tcp-gateway
   namespace: hzp-system
 spec:
-  gatewayClassName: hzp-gateway-class
+  gatewayClassName: nodeport-envoy-gateway-class
   listeners:
     - name: kafka-listener
       protocol: TCP
