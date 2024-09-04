@@ -9,7 +9,7 @@ spec:
   parentRefs:
     - group: gateway.networking.k8s.io
       kind: Gateway
-      name: nodeport-envoy-gateway-class
+      name: hzp-tls-gateway
       namespace: hzp-system
       sectionName: kafka-listener
   rules:
@@ -32,7 +32,7 @@ spec:
   parentRefs:
     - group: gateway.networking.k8s.io
       kind: Gateway
-      name: nodeport-envoy-gateway-class
+      name: hzp-tls-gateway
       namespace: hzp-system
       sectionName: kafka-listener
   rules:
@@ -55,7 +55,7 @@ spec:
   parentRefs:
     - group: gateway.networking.k8s.io
       kind: Gateway
-      name: nodeport-envoy-gateway-class
+      name: hzp-tls-gateway
       namespace: hzp-system
       sectionName: kafka-listener
   rules:
@@ -78,7 +78,7 @@ spec:
   parentRefs:
     - group: gateway.networking.k8s.io
       kind: Gateway
-      name: nodeport-envoy-gateway-class
+      name: hzp-tls-gateway
       namespace: hzp-system
       sectionName: kafka-listener
   rules:

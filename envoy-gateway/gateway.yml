@@ -1,7 +1,7 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: hzp-tcp-gateway
+  name: hzp-tls-gateway
   namespace: hzp-system
 spec:
   gatewayClassName: nodeport-envoy-gateway-class
