@@ -34,6 +34,11 @@ spec:
               advertisedHost: broker-2.strimzi.hzp.local
               advertisedPort: 8443
           createBootstrapService: true
+      - name: plain
+        port: 9094
+        type: internal
+        tls: false
+
     config:
       offsets.topic.replication.factor: 1
       transaction.state.log.replication.factor: 1
