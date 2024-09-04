@@ -1,0 +1,22 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: broker-certificate
+  namespace: strimzi
+spec:
+  secretName: broker-certificate
+  subject:
+    organizations:
+      - horizpipes
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS8
+    size: 2048
+  usages:
+    - server auth
+    - client auth
+  dnsNames:
+    - '*.strimzi.hzp.local'
+  issuerRef:
+    name: hzp-issuer
+    kind: ClusterIssuer

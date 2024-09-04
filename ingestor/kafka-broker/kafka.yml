@@ -1,0 +1,43 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: Kafka
+metadata:
+  name: hzp-cluster
+  annotations:
+    strimzi.io/node-pools: enabled
+    strimzi.io/kraft: enabled
+spec:
+  kafka:
+    version: 3.8.0
+    metadataVersion: 3.8-IV0
+    listeners:
+      - name: exposed
+        port: 9092
+        type: cluster-ip
+        tls: true
+        authentication:
+          type: scram-sha-512
+        configuration:
+          brokerCertChainAndKey:
+            secretName: broker-certificate
+            certificate: tls.crt
+            key: tls.key
+          brokers:
+            - broker: 0
+              advertisedHost: broker-0.strimzi.hzp.local
+              advertisedPort: 9092
+            - broker: 1
+              advertisedHost: broker-1.strimzi.hzp.local
+              advertisedPort: 9092
+            - broker: 2
+              advertisedHost: broker-2.strimzi.hzp.local
+              advertisedPort: 9092
+          createBootstrapServers: true
+    config:
+      offsets.topic.replication.factor: 1
+      transaction.state.log.replication.factor: 1
+      transaction.state.log.min.isr: 1
+      default.replication.factor: 1
+      min.insync.replicas: 1
+  entityOperator:
+    topicOperator: {}
+    userOperator: {}
