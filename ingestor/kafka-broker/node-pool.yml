@@ -1,9 +1,9 @@
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaNodePool
 metadata:
-  name: pool-a
+  name: kpool-a
   labels:
-    strimzi.io/cluster: hzp-cluster
+    strimzi.io/cluster: kluster
 spec:
   replicas: 3
   roles:

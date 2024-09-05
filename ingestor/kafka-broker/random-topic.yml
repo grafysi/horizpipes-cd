@@ -2,9 +2,9 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
   name: random-topic
-  namespace: strimzi
+  namespace: hzp-system
   labels:
-    strimzi.io/cluster: hzp-cluster
+    strimzi.io/cluster: kluster
 spec:
   partitions: 6
   replicas: 2

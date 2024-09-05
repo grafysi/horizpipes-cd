@@ -1,7 +1,7 @@
 apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
-  name: hzp-cluster
+  name: kluster1
   annotations:
     strimzi.io/node-pools: enabled
     strimzi.io/kraft: enabled
@@ -20,7 +20,7 @@ spec:
           type: scram-sha-512
         configuration:
           brokerCertChainAndKey:
-            secretName: broker-certificate
+            secretName: hzp-system-certificate
             certificate: tls.crt
             key: tls.key
           brokers:
@@ -34,12 +34,17 @@ spec:
               advertisedHost: broker-2.strimzi.hzp.local
               advertisedPort: 8443
           createBootstrapService: true
-      - name: plain
+      - name: internal1
         port: 9094
         type: internal
-        tls: false
+        tls: true
         authentication:
           type: scram-sha-512
+        configuration:
+          brokerCertChainAndKey:
+            secretName: hzp-system-certificate
+            certificate: tls.crt
+            key: tls.key
 #      - name: internaltls
 #        port: 9093
 #        type: internal

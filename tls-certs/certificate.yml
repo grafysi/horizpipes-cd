@@ -1,10 +1,10 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: broker-certificate
-  namespace: strimzi
+  name: hzp-system-certificate
+  namespace: hzp-system
 spec:
-  secretName: broker-certificate
+  secretName: hzp-system-certificate
   subject:
     organizations:
       - horizpipes
@@ -16,7 +16,7 @@ spec:
     - server auth
     - client auth
   dnsNames:
-    - '*.strimzi.hzp.local'
+    - '*.hzp.local'
   issuerRef:
-    name: hzp-issuer
-    kind: ClusterIssuer
+    name: hzp-system-issuer
+    kind: Issuer

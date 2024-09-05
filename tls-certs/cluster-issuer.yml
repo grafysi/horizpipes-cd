@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
+kind: Issuer
 metadata:
-  name: hzp-issuer
-  namespace: strimzi
+  name: hzp-system-issuer
+  namespace: hzp-system
 spec:
   selfSigned: {}

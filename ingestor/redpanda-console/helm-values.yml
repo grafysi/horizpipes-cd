@@ -148,7 +148,7 @@ console:
       sasl:
         enabled: true
         mechanism: SCRAM-SHA-512
-        username: hzp-strimzi-user
+        username: open-user1
         # password: set via helm secret
         password: "TO0xK9sKki5eGKBBjnW4h9aCC4lG5X4a"
       tls:

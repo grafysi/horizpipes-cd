@@ -8,7 +8,7 @@ spec:
   sourceRepos:
     - '*'
   destinations:
-    - namespace: '*'
+    - namespace: 'hzp-system'
       server: '*'
   clusterResourceWhitelist:
     - group: '*'
