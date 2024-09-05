@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: hzp-system-issuer
+  name: open-issuer
   namespace: hzp-system
 spec:
   selfSigned: {}
