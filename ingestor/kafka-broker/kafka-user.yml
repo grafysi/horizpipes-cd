@@ -8,6 +8,11 @@ metadata:
 spec:
   authentication:
     type: scram-sha-512
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: open-user1-password
+          key: password
   authorization:
     type: simple
     acls:
