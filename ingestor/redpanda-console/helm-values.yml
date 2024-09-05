@@ -149,6 +149,8 @@ console:
         enabled: true
         mechanism: SCRAM-SHA-512
         username: open-user1
+        passwordSecretName: "open-user1"
+        passwordSecretKey: "password"
         # password: set via helm secret
         # password: "TO0xK9sKki5eGKBBjnW4h9aCC4lG5X4a"
       tls:
