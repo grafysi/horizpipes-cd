@@ -143,7 +143,7 @@ console:
   config:
     kafka:
       brokers:
-        - hzp-cluster-kafka-bootstrap.strimzi.svc.cluster.local:9094
+        - kluster1-kafka-bootstrap:9094
       clientId: hzp-redpanda-console
       sasl:
         enabled: true
@@ -152,7 +152,10 @@ console:
         # password: set via helm secret
         # password: "TO0xK9sKki5eGKBBjnW4h9aCC4lG5X4a"
       tls:
-        enabled: false
+        enabled: true
+        insecureSkipTlsVerify: true
+
+
 
 
 
