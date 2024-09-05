@@ -176,8 +176,6 @@ extraEnv: #[]
 
 # -- Additional environment variables for Redpanda Console mapped from Secret or ConfigMap.
 extraEnvFrom:
-  - secretRef:
-      name: open-user1-password
 # - secretRef:
 #     name: kowl-config-secret
 
