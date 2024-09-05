@@ -9,7 +9,7 @@ spec:
       bootstrapServers: "kluster1-kafka-bootstrap:9094"
       security:
         scram:
-          truststoreSecretName: kluster1-cluster-ca-cert
+          #truststoreSecretName: kluster1-cluster-ca-cert
           user: open-user1
           passwordSecretName: open-user1
 
