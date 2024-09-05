@@ -5,7 +5,7 @@ metadata:
   namespace: hzp-system
 spec:
   hostnames:
-    - broker-0.strimzi.hzp.local
+    - strimzi-broker-0.hzp.local
   parentRefs:
     - group: gateway.networking.k8s.io
       kind: Gateway
@@ -28,7 +28,7 @@ metadata:
   namespace: hzp-system
 spec:
   hostnames:
-    - broker-1.strimzi.hzp.local
+    - strimzi-broker-1.hzp.local
   parentRefs:
     - group: gateway.networking.k8s.io
       kind: Gateway
@@ -51,7 +51,7 @@ metadata:
   namespace: hzp-system
 spec:
   hostnames:
-    - broker-2.strimzi.hzp.local
+    - strimzi-broker-2.hzp.local
   parentRefs:
     - group: gateway.networking.k8s.io
       kind: Gateway
@@ -74,7 +74,7 @@ metadata:
   namespace: hzp-system
 spec:
   hostnames:
-    - bootstrap.strimzi.hzp.local
+    - strimzi-bootstrap.hzp.local
   parentRefs:
     - group: gateway.networking.k8s.io
       kind: Gateway
