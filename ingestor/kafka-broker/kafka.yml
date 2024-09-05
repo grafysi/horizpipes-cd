@@ -34,17 +34,17 @@ spec:
               advertisedHost: strimzi-broker-2.hzp.local
               advertisedPort: 8443
           createBootstrapService: true
-#      - name: internal1
-#        port: 9094
-#        type: internal
-#        tls: true
-#        authentication:
-#          type: scram-sha-512
-#        configuration:
-#          brokerCertChainAndKey:
-#            secretName: open-certificate
-#            certificate: tls.crt
-#            key: tls.key
+      - name: internal1
+        port: 9094
+        type: internal
+        tls: true
+        authentication:
+          type: scram-sha-512
+        configuration:
+          brokerCertChainAndKey:
+            secretName: open-certificate
+            certificate: tls.crt
+            key: tls.key
 #      - name: internaltls
 #        port: 9093
 #        type: internal
