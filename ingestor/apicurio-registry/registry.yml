@@ -1,9 +1,17 @@
+
 apiVersion: registry.apicur.io/v1
 kind: ApicurioRegistry
 metadata:
-  name: example-apicurioregistry-mem
+  name: hzp-apicurioregistry
 spec:
   configuration:
-    persistence: "mem" # Optional (default value)
-    # NOTE: No additional configuration required for *dev* deployment
+    persistence: "kafkasql"
+    kafkasql:
+      bootstrapServers: "hzp-cluster-kafka-bootstrap.strimzi.svc.cluster.local:9094"
+      security:
+        scram:
+          user: hzp-strimzi-user
+          passwordSecretName: hzp-strimzi-user
+
+
 
