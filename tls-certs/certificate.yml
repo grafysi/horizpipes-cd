@@ -4,7 +4,7 @@ metadata:
   name: hzp-system-certificate
   namespace: hzp-system
 spec:
-  secretName: hzp-system-certificate
+  secretName: open-certificate
   subject:
     organizations:
       - horizpipes
@@ -18,5 +18,5 @@ spec:
   dnsNames:
     - '*.hzp.local'
   issuerRef:
-    name: hzp-system-issuer
+    name: open-issuer
     kind: Issuer

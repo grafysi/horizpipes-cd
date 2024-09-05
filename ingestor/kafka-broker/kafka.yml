@@ -20,7 +20,7 @@ spec:
           type: scram-sha-512
         configuration:
           brokerCertChainAndKey:
-            secretName: hzp-system-certificate
+            secretName: open-certificate
             certificate: tls.crt
             key: tls.key
           brokers:
@@ -42,7 +42,7 @@ spec:
           type: scram-sha-512
         configuration:
           brokerCertChainAndKey:
-            secretName: hzp-system-certificate
+            secretName: open-certificate
             certificate: tls.crt
             key: tls.key
 #      - name: internaltls
