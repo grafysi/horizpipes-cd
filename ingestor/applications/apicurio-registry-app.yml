@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apicurio-registry
+  namespace: argocd
+spec:
+  project: horizpipes-dev
+  source:
+    repoURL: https://github.com/grafysi/horizpipes-cd.git
+    targetRevision: HEAD
+    path: ingestor/apicurio-registry
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: apicurio
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
