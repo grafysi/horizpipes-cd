@@ -1,16 +1,17 @@
 apiVersion: registry.apicur.io/v1
 kind: ApicurioRegistry
 metadata:
-  name: hzp-apicurioregistry
+  name: apicurioregistry
 spec:
   configuration:
     persistence: "kafkasql"
     kafkasql:
-      bootstrapServers: "hzp-cluster-kafka-bootstrap:9094"
+      bootstrapServers: "kluster1-kafka-bootstrap:9094"
       security:
         scram:
-          user: hzp-strimzi-user
-          passwordSecretName: hzp-strimzi-user
+          truststoreSecretName: kluster1-cluster-ca-cert
+          user: open-user1
+          passwordSecretName: open-user1
 
 
 
