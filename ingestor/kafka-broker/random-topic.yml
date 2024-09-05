@@ -4,7 +4,7 @@ metadata:
   name: random-topic
   namespace: hzp-system
   labels:
-    strimzi.io/cluster: kluster
+    strimzi.io/cluster: kluster1
 spec:
   partitions: 6
   replicas: 2

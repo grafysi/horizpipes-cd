@@ -3,7 +3,7 @@ kind: KafkaNodePool
 metadata:
   name: kpool-a
   labels:
-    strimzi.io/cluster: kluster
+    strimzi.io/cluster: kluster1
 spec:
   replicas: 3
   roles:
