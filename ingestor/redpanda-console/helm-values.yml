@@ -149,8 +149,7 @@ console:
         enabled: true
         mechanism: SCRAM-SHA-512
         username: open-user1
-        passwordSecretName: "open-user1"
-        passwordSecretKey: "password"
+        password: ""
         # password: set via helm secret
         # password: "TO0xK9sKki5eGKBBjnW4h9aCC4lG5X4a"
       tls:
@@ -166,12 +165,19 @@ console:
   # roleBindings:
 
 # -- Additional environment variables for the Redpanda Console Deployment.
-extraEnv: []
+extraEnv: #[]
+  - name: KAFKA_SASL_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: open-user1-password
+        key: password
   # - name: KAFKA_RACKID
 #   value: "1"
 
 # -- Additional environment variables for Redpanda Console mapped from Secret or ConfigMap.
-extraEnvFrom: []
+extraEnvFrom:
+  - secretRef:
+      name: open-user1-password
 # - secretRef:
 #     name: kowl-config-secret
 
