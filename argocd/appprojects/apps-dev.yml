@@ -10,6 +10,8 @@ spec:
   destinations:
     - namespace: 'hzp-system'
       server: '*'
+    - namespace: 'argocd'
+      server: '*'
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
