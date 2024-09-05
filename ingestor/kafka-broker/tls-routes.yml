@@ -16,7 +16,7 @@ spec:
     - backendRefs:
         - group: ""
           kind: Service
-          name: kluster-kpool-a-exposed-0
+          name: kluster1-kpool-a-exposed-0
           port: 9092
 
 ---
@@ -39,7 +39,7 @@ spec:
     - backendRefs:
         - group: ""
           kind: Service
-          name: kluster-kpool-a-exposed-1
+          name: kluster1-kpool-a-exposed-1
           port: 9092
 
 ---
@@ -62,7 +62,7 @@ spec:
     - backendRefs:
         - group: ""
           kind: Service
-          name: kluster-kpool-a-exposed-2
+          name: kluster1-kpool-a-exposed-2
           port: 9092
 
 ---
@@ -85,5 +85,5 @@ spec:
     - backendRefs:
         - group: ""
           kind: Service
-          name: kluster-kafka-exposed-bootstrap
+          name: kluster1-kafka-exposed-bootstrap
           port: 9092
