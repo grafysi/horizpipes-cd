@@ -6,7 +6,7 @@ spec:
   configuration:
     persistence: "kafkasql"
     kafkasql:
-      bootstrapServers: "hzp-cluster-kafka-bootstrap:9094"
+      bootstrapServers: "hzp-cluster-kafka-bootstrap-xxxx:9094"
       security:
         scram:
           user: hzp-strimzi-user
