@@ -155,11 +155,10 @@ console:
       tls:
         enabled: true
         insecureSkipTlsVerify: true
-
-
-
-
-
+      schemaRegistry:
+        enabled: true
+        urls:
+          - http: "http://apicurioregistry-service:8080"
 
   # roles:
   # roleBindings:

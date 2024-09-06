@@ -12,6 +12,3 @@ spec:
           truststoreSecretName: kluster1-cluster-ca-cert
           user: open-user1
           passwordSecretName: open-user1
-
-
-
