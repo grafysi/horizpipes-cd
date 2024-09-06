@@ -1,0 +1,149 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: test-issuer
+  namespace: reg-test
+spec:
+  selfSigned: {}
+
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: test-certificate
+  namespace: reg-test
+spec:
+  secretName: test-certificate
+  subject:
+    organizations:
+      - horizpipes
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS8
+    size: 2048
+  usages:
+    - server auth
+    - client auth
+  dnsNames:
+    - '*.hzp.local'
+    - '*.reg-test.svc'
+  issuerRef:
+    name: test-issuer
+    kind: Issuer
+
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: Kafka
+metadata:
+  name: my-cluster
+  namespace: reg-test
+  # Change or remove the explicit namespace
+spec:
+  kafka:
+    config:
+      offsets.topic.replication.factor: 3
+      transaction.state.log.replication.factor: 3
+      transaction.state.log.min.isr: 2
+    version: 3.8.0
+    storage:
+      type: ephemeral
+    replicas: 3
+    listeners:
+      - name: tls
+        port: 9093
+        type: internal
+        tls: true
+        authentication:
+          type: scram-sha-512
+      - name: exposed
+        port: 9092
+        type: cluster-ip
+        tls: true
+        authentication:
+          type: scram-sha-512
+        configuration:
+          brokerCertChainAndKey:
+            secretName: test-certificate
+            certificate: tls.crt
+            key: tls.key
+          brokers:
+            - broker: 0
+              advertisedHost: strimzi-broker-0.hzp.local
+              advertisedPort: 8443
+            - broker: 1
+              advertisedHost: strimzi-broker-1.hzp.local
+              advertisedPort: 8443
+            - broker: 2
+              advertisedHost: strimzi-broker-2.hzp.local
+              advertisedPort: 8443
+          createBootstrapService: true
+    authorization:
+      type: simple
+  entityOperator:
+    topicOperator: {}
+    userOperator: {}
+  zookeeper:
+    storage:
+      type: ephemeral
+    replicas: 3
+
+---
+
+
+
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaUser
+metadata:
+  name: my-user
+  labels:
+    strimzi.io/cluster: my-cluster
+  namespace: reg-test
+spec:
+  authentication:
+    type: scram-sha-512
+  authorization:
+    acls:
+      - operation: All
+        resource:
+          name: '*'
+          patternType: literal
+          type: topic
+      - operation: All
+        resource:
+          name: '*'
+          patternType: literal
+          type: cluster
+      - operation: All
+        resource:
+          name: '*'
+          patternType: literal
+          type: transactionalId
+      - operation: All
+        resource:
+          name: '*'
+          patternType: literal
+          type: group
+    type: simple
+
+---
+
+
+
+apiVersion: registry.apicur.io/v1
+kind: ApicurioRegistry
+metadata:
+  name: example-apicurioregistry-kafkasql-scram
+  namespace: reg-test
+spec:
+  configuration:
+    persistence: "kafkasql"
+    kafkasql:
+      bootstrapServers: "my-cluster-kafka-bootstrap.reg-test.svc:9093"
+      security:
+        scram:
+          truststoreSecretName: my-cluster-cluster-ca-cert
+          user: my-user
+          passwordSecretName: my-user
+
+
+
