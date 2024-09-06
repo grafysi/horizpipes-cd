@@ -40,11 +40,6 @@ spec:
         tls: true
         authentication:
           type: scram-sha-512
-        configuration:
-          brokerCertChainAndKey:
-            secretName: open-certificate
-            certificate: tls.crt
-            key: tls.key
 #      - name: internaltls
 #        port: 9093
 #        type: internal

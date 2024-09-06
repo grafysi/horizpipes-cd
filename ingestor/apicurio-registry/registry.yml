@@ -6,7 +6,7 @@ spec:
   configuration:
     persistence: "kafkasql"
     kafkasql:
-      bootstrapServers: "kluster1-kafka-bootstrap.hzp-system.svc.cluster.local:9094"
+      bootstrapServers: "kluster1-kafka-bootstrap.hzp-system.svc:9094"
       security:
         scram:
           truststoreSecretName: kluster1-cluster-ca-cert
