@@ -156,7 +156,7 @@ console:
         enabled: true
         insecureSkipTlsVerify: true
       schemaRegistry:
-        enabled: true
+        enabled: false
         urls:
           - "http://apicurioregistry-service:8080"
 
