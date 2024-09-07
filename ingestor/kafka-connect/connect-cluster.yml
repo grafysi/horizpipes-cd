@@ -18,9 +18,9 @@ spec:
         artifacts:
           - type: tgz
             url: https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/2.7.2.Final/debezium-connector-postgres-2.7.2.Final-plugin.tar.gz
-    additionalKanikoOptions-xxx:
-      - insecure
-      - skip-tls-verify
+    additionalKanikoOptions:
+      - --insecure
+      - --skip-tls-verify
   config:
     group.id: dbzconnect
     key.converter: org.apache.kafka.connect.json.JsonConverter
