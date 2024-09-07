@@ -13,6 +13,7 @@ spec:
       type: docker
       #image: htringuyen/dbz-postgres-kafka-connect:1.0
       image: gfscr.io/dbz-postgres-kafka-connect:1.0
+      pushSecret: dockerio
     plugins:
       - name: debezium-connector-postgres
         artifacts:
