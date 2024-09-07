@@ -1,7 +1,7 @@
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaConnect
 metadata:
-  name: dbzconnectxxx
+  name: dbzconnect
   annotations:
     strimzi.io/use-connector-resources: "true"
 spec:
