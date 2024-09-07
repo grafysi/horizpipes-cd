@@ -10,7 +10,7 @@ spec:
   bootstrapServers: kluster1-kafka-bootstrap:9094
   tls:
     trustedCertificates:
-      - secretName: my-cluster-cluster-ca-cert
+      - secretName: kluster1-cluster-ca-cert
         pattern: "*.crt"
   authentication:
     type: scram-sha-512
