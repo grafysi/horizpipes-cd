@@ -8,6 +8,16 @@ spec:
   version: 3.8.0
   replicas: 3
   bootstrapServers: kluster1-kafka-bootstrap:9093
+  tls:
+    trustedCertificates:
+      - secretName: my-cluster-cluster-ca-cert
+        pattern: "*.crt"
+  authentication:
+    type: scram-sha-512
+    username: open-user1
+    passwordSecret:
+      secretName: open-user1
+      password: password
   build:
     output:
       type: docker
