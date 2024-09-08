@@ -29,6 +29,8 @@ spec:
         artifacts:
           - type: tgz
             url: https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/2.7.2.Final/debezium-connector-postgres-2.7.2.Final-plugin.tar.gz
+          - type: tgz
+            url: https://repo1.maven.org/maven2/io/apicurio/apicurio-registry-distro-connect-converter/2.6.2.Final/apicurio-registry-distro-connect-converter-2.6.2.Final.tar.gz
 #    additionalKanikoOptions:
 #      - --insecure
 #      - --skip-tls-verify
