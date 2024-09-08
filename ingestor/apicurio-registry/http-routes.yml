@@ -1,0 +1,20 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: apicurio-registry
+  namespace: hzp-system
+spec:
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: shared-gateway
+      namespace: envoy-gateway-system
+      sectionName: http-listener
+  hostnames:
+    - "apicurio.hzp.local"
+  rules:
+    - backendRefs:
+        - group: ""
+          kind: Service
+          name: apicurioregistry-service
+          port: 8080
