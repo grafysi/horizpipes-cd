@@ -3,7 +3,7 @@ kind: KafkaConnect
 metadata:
   name: dbzconnect
   annotations:
-    strimzi.io/use-connector-resources: "true"
+    #strimzi.io/use-connector-resources: "true"
 spec:
   version: 3.8.0
   replicas: 3
