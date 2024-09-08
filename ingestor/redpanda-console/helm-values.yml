@@ -166,7 +166,7 @@ console:
       #specify at least one cluster as soon as you enable Kafka connect.
       clusters: #[]
         - name: dbzconnect
-          url: http:dbzconnect-connect:8083
+          url: "http://dbzconnect-connect-api:8083"
           tls:
             #Trusted certificates are still allowed if TLS is not enabled.
             enabled: false
@@ -174,11 +174,11 @@ console:
             certFilepath:
             keyFilepath:
             insecureSkipTlsVerify: false
-          username:
-          #Password can also be set using the --connect.clusters.i.password flag (i to be replaced with the array index).
-          password:
-          #Token can also be set using the --connect.clusters.i.token flag (i to be replaced with the array index).
-          token:
+#          username:
+#          #Password can also be set using the --connect.clusters.i.password flag (i to be replaced with the array index).
+#          password:
+#          #Token can also be set using the --connect.clusters.i.token flag (i to be replaced with the array index).
+#          token:
         #Used to test cluster connectivity.
       connectTimeout: 15s
       #Overall REST timeout.
@@ -248,7 +248,7 @@ secretMounts: []
 # If you want to use one or more existing Secrets,
 # you can use the `extraEnvFrom` list to mount environment variables from string and secretMounts to mount files such as Certificates from Secrets.
 secret:
-  create: true
+  create: false
 
   # Secret values in case you want the chart to create a Secret. All Certificates are mounted
   # as files and the path to those files are configured through environment variables so
