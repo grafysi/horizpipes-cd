@@ -196,11 +196,11 @@ connect:
         certFilepath:
         keyFilepath:
         insecureSkipTlsVerify: false
-      username:
-       #Password can also be set using the --connect.clusters.i.password flag (i to be replaced with the array index).
-      password:
-       #Token can also be set using the --connect.clusters.i.token flag (i to be replaced with the array index).
-      token:
+#      username:
+#       #Password can also be set using the --connect.clusters.i.password flag (i to be replaced with the array index).
+#      password:
+#       #Token can also be set using the --connect.clusters.i.token flag (i to be replaced with the array index).
+#      token:
    #Used to test cluster connectivity.
   connectTimeout: 15s
    #Overall REST timeout.
