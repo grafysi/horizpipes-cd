@@ -2,11 +2,11 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaConnect
 metadata:
   name: dbzconnect
-  annotations:
-    #strimzi.io/use-connector-resources: "true"
+#  annotations:
+#    strimzi.io/use-connector-resources: "true"
 spec:
   version: 3.8.0
-  replicas: 3
+  replicas: 1
   bootstrapServers: kluster1-kafka-bootstrap:9094
   tls:
     trustedCertificates:
