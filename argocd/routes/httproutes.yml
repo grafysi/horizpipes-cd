@@ -9,7 +9,7 @@ spec:
       kind: Gateway
       name: shared-gateway
       namespace: envoy-gateway-system
-      sectionName: http-listener
+      sectionName: tls-listener
   hostnames:
     - "argocd.hzp.local"
   rules:
