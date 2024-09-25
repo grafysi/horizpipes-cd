@@ -33,7 +33,8 @@ spec:
             url: https://repo1.maven.org/maven2/io/apicurio/apicurio-registry-distro-connect-converter/2.6.2.Final/apicurio-registry-distro-connect-converter-2.6.2.Final.tar.gz
           - type: jar
             url: http://nexus.hzp.local:8000/repository/maven-releases/com/grafysi/horizpipes/kafka-connect-utils/1.0.0/kafka-connect-utils-1.0.0.jar
-            insecure: true
+            insecure: false
+
 #          - type: maven
 #            repository: http://nexus.hzp.local:8000/repository/maven-releases/
 #            group: com.grafysi.horizpipes
