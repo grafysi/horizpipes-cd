@@ -16,5 +16,5 @@ spec:
     - backendRefs:
         - group: ""
           kind: Service
-          name: dbzconnect-connect-api
-          port: 8083
+          name: nexus-oss-nexus-repository-manager
+          port: 8081
