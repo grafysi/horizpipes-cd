@@ -1,2 +1,2 @@
 # horizpipes-cd
-HorizPipes continuous deployment
+Horizpipes continuous deployment
