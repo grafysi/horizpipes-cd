@@ -32,7 +32,7 @@ spec:
           - type: tgz
             url: https://repo1.maven.org/maven2/io/apicurio/apicurio-registry-distro-connect-converter/2.6.2.Final/apicurio-registry-distro-connect-converter-2.6.2.Final.tar.gz
           - type: maven
-            url: http://nexus.hzp.local:8000/repository/maven-snapshots/
+            repository: http://nexus.hzp.local:8000/repository/maven-snapshots/
             group: com.grafysi.horizpipes
             artifact: kafka-connect-utils
             version: 1.0.0-SNAPSHOT
