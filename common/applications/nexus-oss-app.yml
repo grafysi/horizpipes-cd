@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nexus-oss
+  namespace: argocd
+spec:
+  project: horizpipes-dev
+  sources:
+    - repoURL: https://sonatype.github.io/helm3-charts/
+      chart: nexus-repository-manager
+      targetRevision: 64.2.0
+      helm:
+        valueFiles:
+          - $values/common/nexus-oss/helm-values.yml
+    - repoURL: https://github.com/grafysi/horizpipes-cd.git
+      targetRevision: HEAD
+      path: common/nexus-oss
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: hzp-system
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
