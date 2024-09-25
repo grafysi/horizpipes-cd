@@ -6,7 +6,7 @@ deploymentStrategy: Recreate
 image:
   # Sonatype Official Public Image
   repository: sonatype/nexus3
-  tag: 3.72.0
+  tag: 3.64.1
   pullPolicy: IfNotPresent
 imagePullSecrets:
 # for image registries that require login, specify the name of the existing
@@ -26,6 +26,9 @@ nexus:
     - name: INSTALL4J_ADD_VM_PARAMS
       value: |-
         -Xms2703M -Xmx2703M
+        -XX:MaxDirectMemorySize=2703M
+        -XX:+UnlockExperimentalVMOptions
+        -XX:+UseCGroupMemoryLimitForHeap
         -Djava.util.prefs.userRoot=/nexus-data/javaprefs
     - name: NEXUS_SECURITY_RANDOMPASSWORD
       value: "true"
