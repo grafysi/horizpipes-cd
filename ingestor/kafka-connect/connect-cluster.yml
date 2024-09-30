@@ -6,7 +6,7 @@ metadata:
 #    strimzi.io/use-connector-resources: "true"
 spec:
   version: 3.8.0
-  replicas: 1
+  replicas: 3
   bootstrapServers: kluster1-kafka-bootstrap:9094
   tls:
     trustedCertificates:
